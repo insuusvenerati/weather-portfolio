@@ -3,34 +3,30 @@ import 'semantic-ui-css/semantic.min.css';
 import Titles from './components/Titles';
 import Weather from './components/Weather';
 import Forms from './components/Forms';
-import {Container} from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
 const API_KEY = 'aa9476d2924eaebdf8e2721732d32901';
 
 // Initialise the component
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      temperature: undefined,
-      city: undefined,
-      country: undefined,
-      humidity: undefined,
-      description: undefined,
-      error: undefined,
-    };
-    this.getWeather = this.getWeather.bind(this);
-  }
-  async getWeather(e) {
+  state = {
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    description: undefined,
+    error: undefined
+  };
+  getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
-    const API_CALL = await fetch(
+    const api_call = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`
     );
 
-    const data = await API_CALL.json();
+    const data = await api_call.json();
 
     if (city && country) {
       console.log(data);
@@ -40,7 +36,7 @@ class App extends React.Component {
         country: data.sys.country,
         humidity: data.main.humidity,
         description: data.weather[0].description,
-        error: '',
+        error: ''
       });
     } else {
       this.setState({
@@ -49,10 +45,10 @@ class App extends React.Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: 'Please enter a value',
+        error: 'Please enter a value'
       });
     }
-  }
+  };
   render() {
     return (
       <Container>
