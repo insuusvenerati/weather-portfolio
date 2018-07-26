@@ -1,26 +1,25 @@
 {
-    "env": {
-        "browser": true
-    },
-    "extends": [
-        "google",
-        "plugin:react/recommended"
-    ],
-    "parser": "babel-eslint",
-    "plugins": [
-        "react",
-        "jsx-a11y",
-        "import"
-    ],
-    "rules": {
-      "require-jsdoc": ["error", {
+  "env": {
+    "browser": true
+  },
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": ["off", "always"],
+    "babel/no-invalid-this": 0,
+    "require-jsdoc": [
+      "error",
+      {
         "require": {
-            "FunctionDeclaration": false,
-            "MethodDefinition": false,
-            "ClassDeclaration": false,
-            "ArrowFunctionExpression": false,
-            "FunctionExpression": false
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
         }
-    }]
+      }
+    ]
   }
 }
