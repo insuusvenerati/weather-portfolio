@@ -1,6 +1,10 @@
 import React from 'react'
 
 
-const Home = () =>  ( <p>Home Page</p> );
+const Home = () =>  ( 
+  <div className='container' style={{ backgroundColor: 'white' }} >
+    <p>Home Page</p> 
+  </div>
+);
  
 export default Home;

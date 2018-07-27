@@ -54,7 +54,7 @@ class App extends React.Component {
 
   getWeather = async (city, country) => {
     const API_CALL = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
     );
 
     const data = await API_CALL.json();
@@ -78,10 +78,7 @@ class App extends React.Component {
             </Segment>
               <Container>
                 <Switch>
-                  <Route
-                  exact path="/" 
-                  component={Home} 
-                  />
+                  <Route exact path="/" component={Home} />
                   <Route path="/projects" component={Projects} />
                   <Route path="/about" component={About} />
                   <Route path="/contact" component={Contact} />
